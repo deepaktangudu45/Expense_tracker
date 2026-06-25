@@ -1,0 +1,57 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Income{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/tables.css' %}">
+
+<div class="page-header">
+    <h2 class="page-title">Your Income</h2>
+    <a href="{% url 'add_income' %}" class="btn-primary">➕ Add Income</a>
+</div>
+
+<div class="table-container" style="margin-bottom: 25px; padding: 20px;">
+    <form method="GET" style="display: flex; gap: 15px; align-items: center;">
+        <input type="text" name="search" placeholder="Search source or amount (e.g. Salary, 5000)..." value="{{ request.GET.search }}" 
+               style="flex: 1; padding: 10px 14px; border-radius: 10px; border: 1px solid #e5e7eb;">
+        
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Search</button>
+        
+        {% if request.GET.search %}
+        <a href="{% url 'income_list' %}" style="color: #6b7280; text-decoration: none; margin-left: 10px;">Clear</a>
+        {% endif %}
+    </form>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Source</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for income in incomes %}
+            <tr>
+                <td>{{ income.date }}</td>
+                <td>{{ income.source }}</td>
+                <td>₹ {{ income.amount }}</td>
+                <td><a href="{% url 'delete_income' income.pk %}" class="action-btn btn-delete">Delete</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="empty-row">No incomes added yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   <div class="total-income-container" style="background-color: #ffffffff; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffffffff; color: #000000ff;">
+    <h3>Total Income: <strong>{{ total }}</strong></h3>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Add Budget{% endblock %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+
+<div class="form-container">
+  <h2 class="form-title">Add Budget</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="{{ form.limit.id_for_label }}">Budget</label>
+      {{ form.limit }} {{ form.limit.errors }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.category.id_for_label }}">Category</label>
+      {{ form.category }} {{ form.category.errors }}
+
+      <small
+        ><a href="{% url 'add_category' %}" class="add-category-link"
+          >+ Add new category</a
+        ></small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.month.id_for_label }}">Month</label>
+      {{ form.month }} {{ form.month.errors }}
+    </div>
+
+    
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Save Budget</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+/* PAGE HEADER */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 26px;
+    color: #1f2937;
+}
+
+
+/* TABLE CARD */
+.table-container {
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 22px;
+    box-shadow: 0 20px 40px rgba(91,124,250,0.15);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* TABLE HEADER */
+thead th {
+    padding: 14px;
+    font-size: 13px;
+    color: #5b7cfa;
+    border-bottom: 2px solid #eef2ff;
+    text-align: left;
+}
+
+/* TABLE ROWS */
+tbody tr:hover {
+    background: #f6f9ff;
+}
+
+/* TABLE CELLS */
+tbody td {
+    padding: 14px;
+    font-size: 14px;
+    color: #1f2937;
+    border-bottom: 1px solid #eef2ff;
+}
+
+/* ACTION BUTTONS */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    margin-right: 6px;
+    display: inline-block;
+}
+
+/* EDIT */
+.btn-edit {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.btn-edit:hover {
+    background: #c7d2fe;
+}
+
+/* DELETE */
+.btn-delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}
+
+/* EMPTY STATE */
+.empty-row {
+    text-align: center;
+    padding: 25px;
+    color: #6b7280;
+}

@@ -1,0 +1,30 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Delete Income{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<div class="form-container" style="text-align: center;">
+    <h2 class="form-title" style="color: #dc3545;">Delete Income?</h2>
+
+    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+        Are you sure you want to delete this income?
+    </p>
+
+    <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 25px; border: 1px solid #ddd;">
+        <p><strong>Income:</strong> {{ income.amount }}</p>
+        <p><strong>Source:</strong> {{ income.source }}</p>
+        <p><strong>Month:</strong> {{ income.date }}</p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-actions" style="justify-content: center; gap: 15px;">
+            <button type="submit" class="btn-primary" style="background-color: #dc3545; border-color: #dc3545;">Yes, Delete</button>
+            <a href="{% url 'income_list' %}" class="btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

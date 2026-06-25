@@ -1,0 +1,26 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Add Category{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<div class="form-container">
+    <h2 class="form-title">Add New Category</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Category Name</label>
+            {{ form.name }}
+            {{ form.name.errors }}
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Add Category</button>
+            <a href="{% url 'add_expense' %}" class="btn-secondary" style="margin-left: 10px; text-decoration: none; color: #666;">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

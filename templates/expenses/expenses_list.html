@@ -1,0 +1,61 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Expenses{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/tables.css' %}">
+
+<div class="page-header">
+    <h2 class="page-title">Your Expenses</h2>
+    <a href="{% url 'add_expense' %}" class="btn-primary">➕ Add Expense</a>
+</div>
+
+<div class="table-container" style="margin-bottom: 25px; padding: 20px;">
+    <form method="GET" style="display: flex; gap: 15px; align-items: center;">
+        <input type="text" name="search" placeholder="Search category or description (e.g. Food, Scnaks)..." value="{{ request.GET.search }}" 
+               style="flex: 1; padding: 10px 14px; border-radius: 10px; border: 1px solid #e5e7eb;">
+        
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Search</button>
+        
+        {% if request.GET.search %}
+        <a href="{% url 'expense_list' %}" style="color: #6b7280; text-decoration: none; margin-left: 10px;">Clear</a>
+        {% endif %}
+    </form>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Payment method</th>
+                <th>Description</th>
+                <th>Actions</th>
+                
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.category }}</td>
+                <td>₹ {{ expense.amount }}</td>
+                <td>{{expense.payment_method}}</td>
+                <td>{{expense.description}}</td>
+                <td>
+                    <a href="{% url 'edit_expense' expense.pk %}" class="action-btn btn-edit">Edit</a>
+                    <a href="{% url 'delete_expense' expense.pk %}" class="action-btn btn-delete">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="empty-row">No expenses added yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

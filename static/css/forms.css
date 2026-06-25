@@ -1,0 +1,80 @@
+/* FORM CARD */
+.form-container {
+    max-width: 520px;
+    background: #ffffff;
+    padding: 30px 32px;
+    border-radius: 26px;
+    box-shadow: 0 20px 40px rgba(91,124,250,0.18);
+}
+
+/* FORM TITLE */
+.form-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #1f2937;
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.add-category-link {
+    display: inline-block;
+    margin-top: 5px;      
+    font-size: 0.85rem;  
+    color: #007bff;      
+    text-decoration: none; 
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.add-category-link:hover {
+    color: #0056b3;     
+    text-decoration: underline;
+}
+
+/* LABEL */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* INPUTS & SELECTS */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #5b7cfa;
+    box-shadow: 0 0 0 3px rgba(91,124,250,0.15);
+}
+
+/* SUBMIT BUTTON */
+.form-actions {
+    margin-top: 25px;
+}
+
+.form-actions button {
+    border: none;
+    cursor: pointer;
+}
+
+/* ERROR TEXT */
+.errorlist {
+    margin-top: 6px;
+    color: #dc2626;
+    font-size: 13px;
+    list-style: none;
+    padding-left: 0;
+}

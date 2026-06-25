@@ -1,0 +1,46 @@
+{% extends "expenses/base.html" %}
+{% load static %}
+{% block title %}Budgets{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/tables.css' %}">
+
+<div class="page-header">
+    <h2 class="page-title">Monthly Budgets</h2>
+    <a href="{% url 'add_category' %}" class="btn-primary">➕ Add Budget</a>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Category</th>
+                <th>Budget</th>
+                <th>Spent</th>
+                <th>Percentage Spent</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for budget in budgets %}
+            <tr>
+                <td>{{ budget.month|date:"F Y" }}</td>
+                <td>{{ budget.category }}</td>
+                <td>₹ {{ budget.limit }}</td>
+                <td>₹ {{ budget.spent }}</td>
+                <td>{{ budget.percentage|floatformat:2 }}%</td>
+                <td><a href="{% url 'delete_budget' budget.pk %}" class="action-btn btn-delete">Delete</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="empty-row">No budgets added yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

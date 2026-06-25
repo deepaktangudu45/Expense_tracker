@@ -1,0 +1,103 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+body {
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* AUTH CONTAINER */
+.auth-box {
+    background: #ffffff;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* TITLE */
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* FORM FIELDS */
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.auth-box input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* BUTTON */
+.auth-box button {
+    width: 100%;
+    padding: 10px;
+    background: #4a90e2;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    background: #357bd8;
+}
+
+/* LINKS */
+.auth-box p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.auth-box a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+/* MESSAGES */
+.messages {
+    margin-bottom: 15px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ERROR MESSAGE */
+.message.error {
+    background: #ffe6e6;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+}
+
+/* SUCCESS MESSAGE */
+.message.success {
+    background: #e6ffea;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
